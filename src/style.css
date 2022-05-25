@@ -135,3 +135,9 @@ img {
   font-weight: bold;
   color: rgb(185, 184, 184);
 }
+
+.developed-by,
+.github-link {
+  margin: 200px 115px;
+  font-size: 12px;
+}
