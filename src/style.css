@@ -1,0 +1,137 @@
+body {
+  color: white;
+  background-color: #005792;
+}
+
+h1 {
+  margin-top: 30px;
+}
+
+h4 {
+  font-style: italic;
+}
+
+hr {
+  border: 1px solid white;
+}
+
+img {
+  width: 80px;
+  margin-top: 40px;
+}
+
+.form-select {
+  width: 90px;
+  margin-top: 40px;
+}
+
+.search-bar {
+  border: 2px solid white;
+  border-radius: 15px;
+  text-align: center;
+  padding: 15px 20px;
+  width: 700px;
+  font-size: 16px;
+}
+
+.button {
+  background-color: #4eae53;
+  color: white;
+  font-size: 14px;
+  font-style: italic;
+  border: 1px solid gray;
+  padding: 10px 20px;
+  box-shadow: 1px 1px 1px black;
+  transition: 150ms ease-in-out;
+}
+
+.button:hover {
+  background-color: #265e29;
+  border: 1px solid #265e29;
+}
+
+.button-current-location {
+  color: white;
+  background-color: orangered;
+  font-size: 12px;
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.button-current-location:hover {
+  font-weight: bold;
+}
+
+.city-search {
+  margin-top: 20px;
+}
+
+.current {
+  display: block;
+  margin-top: 30px;
+}
+
+.city,
+.current-temperature {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.city {
+  color: #f7aa00;
+}
+
+.current-conditions {
+  font-size: 13px;
+  color: rgb(185, 184, 184);
+  position: relative;
+  right: 0;
+  font-weight: bold;
+}
+
+.forecast {
+  display: block;
+  margin-top: 50px;
+}
+
+.general-alert {
+  border: 1px dashed white;
+  border-radius: 5px;
+  padding: 12px 50px;
+}
+
+.fa-triangle-exclamation {
+  color: yellow;
+  font-size: 32px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.alert-text {
+  font-size: 14px;
+}
+
+.day-week {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ede862;
+}
+
+.day-month {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.max-temperature {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.min-temperature {
+  font-size: 12px;
+  font-weight: bold;
+  color: rgb(185, 184, 184);
+}
