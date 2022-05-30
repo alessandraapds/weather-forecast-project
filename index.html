@@ -31,23 +31,6 @@
           <h1>The Weather Forecast</h1>
           <h4>Your weather forecast channel</h4>
         </div>
-        <div class="col-1">
-          <select class="form-select" aria-label="Default select example">
-            <option selected>EN</option>
-            <option value="1">ES</option>
-            <option value="2">PT</option>
-          </select>
-        </div>
-        <div class="col-1">
-          <select
-            class="form-select"
-            id="metric-selection"
-            aria-label="Default select example"
-          >
-            <option selected id="celsius">°C</option>
-            <option value="1" id="fahrenheint">°F</option>
-          </select>
-        </div>
       </div>
 
       <hr />
@@ -81,13 +64,25 @@
             <br />
           </div>
           <div class="col-5">
-            <span class="current-temperature" id="current-temp">🌤️16°C</span>
+            <span class="current-temperature" id="current-temp">🌤️16°C</span
+            ><span
+              class="current-temperature-fareinheit"
+              id="current-temp-fareinheit"
+            >
+              | °F</span
+            >
             <br />
-            <span class="current-conditions">Precipitation: 24%</span>
+            <span class="current-conditions" id="current-precipitation"
+              >Precipitation: 24%</span
+            >
             <br />
-            <span class="current-conditions">Wind: 8km/h</span>
+            <span class="current-conditions" id="current-wind"
+              >Wind: 8km/h</span
+            >
             <br />
-            <span class="current-conditions">Humidity: 25%</span>
+            <span class="current-conditions" id="current-humitidy"
+              >Humidity: 25%</span
+            >
           </div>
           <div class="col-4 general-alert">
             <i class="fa-solid fa-triangle-exclamation"></i>

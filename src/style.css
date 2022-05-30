@@ -74,7 +74,8 @@ img {
 }
 
 .city,
-.current-temperature {
+.current-temperature,
+.current-temperature-fareinheit {
   font-size: 36px;
   font-weight: bold;
 }

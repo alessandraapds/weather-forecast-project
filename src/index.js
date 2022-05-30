@@ -40,13 +40,20 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-console.log(); // Foo
+// Foo
 
 function showTemperature(response) {
   let finalTemp = document.querySelector("#current-temp");
   let realTemp = Math.round(response.data.main.temp);
   finalTemp.innerHTML = `🌤️ ${realTemp} °C`;
-  console.log(realTemp);
+
+  let finalWind = document.querySelector("#current-wind");
+  let realWind = Math.round(response.data.wind.speed);
+  finalWind.innerHTML = `Wind: ${realWind}km/h`;
+
+  let finalHumidity = document.querySelector("#current-humitidy");
+  let realHumidity = Math.round(response.data.main.humidity);
+  finalHumidity.innerHTML = `Humidity: ${realHumidity}%`;
 }
 
 function displayCityName(event) {
@@ -54,7 +61,6 @@ function displayCityName(event) {
   let citySearched = document.querySelector("#city-searched");
   let city = document.querySelector("#city");
   city.innerHTML = capitalizeFirstLetter(`${citySearched.value}`);
-  console.log(city.innerHTML);
 
   // Real data for temperature
   let apiKey = "962ca7dddb46b66aa536e2a7464b8168";
@@ -65,23 +71,6 @@ function displayCityName(event) {
 
 let citySearchButton = document.querySelector("#search-form");
 citySearchButton.addEventListener("submit", displayCityName);
-
-// Bonus Feature
-
-function selectTempMetric(event) {
-  event.preventDefault();
-  let finalTemp = document.querySelector("#current-temp");
-  let unit = document.querySelector("#metric-selection");
-
-  if (unit.value === "°C") {
-    finalTemp.innerHTML = "🌤️ 20°C";
-  } else {
-    finalTemp.innerHTML = "🌤️ 67°F";
-  }
-}
-
-let tempMetric = document.querySelector("#metric-selection");
-tempMetric.addEventListener("change", selectTempMetric);
 
 // Show temperature based on current location
 function showCurrentLocationTemperature(response) {
