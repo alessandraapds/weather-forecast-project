@@ -48,9 +48,14 @@ function capitalizeFirstLetter(string) {
 // Foo
 
 function showTemperature(response) {
+  let finalIcon = document.querySelector("#current-icon");
+  let realIcon = response.data.weather[0].icon;
+  let iconURL = `http://openweathermap.org/img/wn/${realIcon}@2x.png`;
+  finalIcon.setAttribute("src", `${iconURL}`);
+
   let finalTemp = document.querySelector("#current-temp");
   let realTemp = Math.round(response.data.main.temp);
-  finalTemp.innerHTML = `🌤️ ${realTemp} °C`;
+  finalTemp.innerHTML = `${realTemp} °C`;
 
   let finalWind = document.querySelector("#current-wind");
   let realWind = Math.round(response.data.wind.speed);
@@ -83,9 +88,14 @@ citySearchButton.addEventListener("submit", displayCityName);
 
 // Show temperature based on current location
 function showCurrentLocationTemperature(response) {
+  let finalIcon = document.querySelector("#current-icon");
+  let realIcon = response.data.weather[0].icon;
+  let iconURL = `http://openweathermap.org/img/wn/${realIcon}@2x.png`;
+  finalIcon.setAttribute("src", `${iconURL}`);
+
   let finalTemp = document.querySelector("#current-temp");
   let realTemp = Math.round(response.data.main.temp);
-  finalTemp.innerHTML = `🌤️${realTemp} °C`;
+  finalTemp.innerHTML = `${realTemp} °C`;
 
   let finalWind = document.querySelector("#current-wind");
   let realWind = Math.round(response.data.wind.speed);

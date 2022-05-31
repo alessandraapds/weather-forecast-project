@@ -69,7 +69,6 @@ img {
 }
 
 .current {
-  display: block;
   margin-top: 30px;
 }
 
@@ -78,6 +77,15 @@ img {
 .current-temperature-fareinheit {
   font-size: 36px;
   font-weight: bold;
+}
+
+.current-icon {
+  transform: scale(1);
+  margin-top: -15px;
+  padding: 0;
+  box-sizing: content-box;
+  display: inline;
+  width: 40px;
 }
 
 .city {
