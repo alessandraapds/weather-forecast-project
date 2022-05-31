@@ -53,9 +53,11 @@ function showTemperature(response) {
   let iconURL = `http://openweathermap.org/img/wn/${realIcon}@2x.png`;
   finalIcon.setAttribute("src", `${iconURL}`);
 
+  celsiusTemperature = Math.round(response.data.main.temp);
+
   let finalTemp = document.querySelector("#current-temp");
   let realTemp = Math.round(response.data.main.temp);
-  finalTemp.innerHTML = `${realTemp} °C`;
+  finalTemp.innerHTML = `<strong>${realTemp}</strong>`;
 
   let finalWind = document.querySelector("#current-wind");
   let realWind = Math.round(response.data.wind.speed);
@@ -93,9 +95,11 @@ function showCurrentLocationTemperature(response) {
   let iconURL = `http://openweathermap.org/img/wn/${realIcon}@2x.png`;
   finalIcon.setAttribute("src", `${iconURL}`);
 
+  celsiusTemperature = Math.round(response.data.main.temp);
+
   let finalTemp = document.querySelector("#current-temp");
   let realTemp = Math.round(response.data.main.temp);
-  finalTemp.innerHTML = `${realTemp} °C`;
+  finalTemp.innerHTML = `<strong>${realTemp}</strong>`;
 
   let finalWind = document.querySelector("#current-wind");
   let realWind = Math.round(response.data.wind.speed);
@@ -130,3 +134,24 @@ function getActualPosition() {
 
 let button = document.querySelector("#button-current-location");
 button.addEventListener("click", getActualPosition);
+
+function changeToCelsius(event) {
+  event.preventDefault();
+  let finalTemp = document.querySelector("#current-temp");
+  finalTemp.innerHTML = `<strong>${celsiusTemperature}</strong>`;
+}
+
+let celsiusLink = document.querySelector("#current-temperature-celsius");
+celsiusLink.addEventListener("click", changeToCelsius);
+
+let celsiusTemperature = null;
+
+function changeToFahrenheit(event) {
+  event.preventDefault();
+  let finalTemp = document.querySelector("#current-temp");
+  let tempFahrenheit = Math.round((celsiusTemperature * 9) / 5 + 32);
+  finalTemp.innerHTML = `<strong>${tempFahrenheit}</strong>`;
+}
+
+let fahrenheitLink = document.querySelector("#current-temperature-fahreinheit");
+fahrenheitLink.addEventListener("click", changeToFahrenheit);

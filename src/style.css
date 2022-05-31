@@ -73,10 +73,15 @@ img {
 }
 
 .city,
-.current-temperature,
-.current-temperature-fareinheit {
+.current-temperature {
   font-size: 36px;
   font-weight: bold;
+}
+
+.current-temperature-celsius,
+.current-temperature-fahreinheit {
+  font-size: 20px;
+  text-decoration: none;
 }
 
 .current-icon {
