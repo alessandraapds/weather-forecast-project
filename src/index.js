@@ -12,7 +12,12 @@ let days = [
   "Saturday",
 ];
 let currentWeekDay = document.querySelector("#current-week-day");
-currentWeekDay.innerHTML = days[now.getDay()];
+currentWeekDay.innerHTML = `${days[now.getDay()]}, ${now.getHours()}:${String(
+  now.getMinutes()
+).padStart(2, "0")}`;
+
+console.log(now.getHours());
+console.log(now.getMinutes());
 
 let months = [
   "Jan",
@@ -54,6 +59,10 @@ function showTemperature(response) {
   let finalHumidity = document.querySelector("#current-humitidy");
   let realHumidity = Math.round(response.data.main.humidity);
   finalHumidity.innerHTML = `Humidity: ${realHumidity}%`;
+
+  let finalAlert = document.querySelector("#alert-text");
+  let realAlert = response.data.weather[0].description;
+  finalAlert.innerHTML = capitalizeFirstLetter(`${realAlert}`);
 }
 
 function displayCityName(event) {
@@ -77,6 +86,18 @@ function showCurrentLocationTemperature(response) {
   let finalTemp = document.querySelector("#current-temp");
   let realTemp = Math.round(response.data.main.temp);
   finalTemp.innerHTML = `🌤️${realTemp} °C`;
+
+  let finalWind = document.querySelector("#current-wind");
+  let realWind = Math.round(response.data.wind.speed);
+  finalWind.innerHTML = `Wind: ${realWind}km/h`;
+
+  let finalHumidity = document.querySelector("#current-humitidy");
+  let realHumidity = Math.round(response.data.main.humidity);
+  finalHumidity.innerHTML = `Humidity: ${realHumidity}%`;
+
+  let finalAlert = document.querySelector("#alert-text");
+  let realAlert = response.data.weather[0].description;
+  finalAlert.innerHTML = capitalizeFirstLetter(`${realAlert}`);
 
   let city = document.querySelector("#city");
   city.innerHTML = capitalizeFirstLetter(`${response.data.name}`);
