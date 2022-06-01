@@ -45,6 +45,70 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index >= 1 && index <= 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+          <div class="col-2">
+            <span class="day-week" id="day-plus-1">${formatDay(
+              forecastDay.dt
+            )}</span>
+            <br />
+            <span ><img class="emoji"
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt=""
+          
+        /></span>
+            <br />
+            <span class="max-temperature">${Math.round(
+              forecastDay.temp.max
+            )} °C</span>
+            <br />
+            <span class="min-temperature">${Math.round(
+              forecastDay.temp.min
+            )}°C</span>
+          </div>
+   `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "962ca7dddb46b66aa536e2a7464b8168";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 // Foo
 
 function showTemperature(response) {
@@ -70,6 +134,8 @@ function showTemperature(response) {
   let finalAlert = document.querySelector("#alert-text");
   let realAlert = response.data.weather[0].description;
   finalAlert.innerHTML = capitalizeFirstLetter(`${realAlert}`);
+
+  getForecast(response.data.coord);
 }
 
 function displayCityName(event) {
@@ -115,6 +181,8 @@ function showCurrentLocationTemperature(response) {
 
   let city = document.querySelector("#city");
   city.innerHTML = capitalizeFirstLetter(`${response.data.name}`);
+
+  getForecast(response.data.coord);
 }
 
 function retrievePosition(position) {
